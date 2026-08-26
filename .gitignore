@@ -31,13 +31,16 @@ htmlcov/
 # Logs & Databases
 logs/*.log
 logs/*.log.*
-data/trash/
-data/*.db-journal
-data/*.db-wal
-data/*.db-shm
+**/logs/*.log
+**/logs/*.log.*
+**/data/trash/
+**/*.db-journal
+**/*.db-wal
+**/*.db-shm
 
 # Environment
 .env
+**/.env
 
 # IDE & OS
 .vscode/

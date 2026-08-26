@@ -28,9 +28,10 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r bot/requirements.txt
 
       - name: Run Job Discovery & Telegram Broadcast
+        working-directory: bot
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
@@ -46,5 +47,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/jobs.db
+          git add bot/data/jobs.db
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore(db): update 7-day job deduplication history [skip ci]" && git push origin HEAD:main)
