@@ -1,0 +1,45 @@
+name: Daily Azerbaijan Job Bot
+
+on:
+  schedule:
+    # Runs everyday at 05:00 UTC (09:00 AM Baku / Azerbaijan Time UTC+4)
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub web UI button anytime
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Job Discovery & Telegram Broadcast
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || 'gemini-3.1-flash-lite' }}
+          DAILY_MAX_JOBS: ${{ secrets.DAILY_MAX_JOBS || '15' }}
+          MAX_JOBS_PER_MESSAGE: ${{ secrets.MAX_JOBS_PER_MESSAGE || '15' }}
+          DEDUPLICATION_DAYS: '7'
+        run: |
+          python main.py --run-once
+
+      - name: Commit & Persist 7-Day Deduplication Database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/jobs.db
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(db): update 7-day job deduplication history [skip ci]" && git push)
