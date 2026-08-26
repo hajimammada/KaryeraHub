@@ -3,7 +3,7 @@ name: Daily Azerbaijan Job Bot
 on:
   schedule:
     # Runs everyday at 05:00 UTC (09:00 AM Baku / Azerbaijan Time UTC+4)
-    - cron: '0 5 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub web UI button anytime
 
 permissions:
