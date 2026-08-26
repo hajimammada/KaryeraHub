@@ -1,11 +1,11 @@
-# 🇦🇿 İş Radarı Bot (isradaribot)
+# 🇦🇿 Karyera Hub Bot (karyerahub)
 
-[![Telegram Channel](https://img.shields.io/badge/Telegram-@isradari-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://isradari.t.me)
-[![Live Channel](https://img.shields.io/badge/Channel_Link-isradari.t.me-blue?style=for-the-badge)](https://isradari.t.me)
+[![Telegram Channel](https://img.shields.io/badge/Telegram-@karyerahub-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/karyerahub)
+[![Live Channel](https://img.shields.io/badge/Channel_Link-karyerahub-blue?style=for-the-badge)](https://t.me/karyerahub)
 
-> 📢 **Official Telegram Channel**: [https://isradari.t.me](https://isradari.t.me) (`@isradari`)
+> 📢 **Official Telegram Channel**: [https://t.me/karyerahub](https://t.me/karyerahub) (`@karyerahub`)
 
-An intelligent, automated Telegram bot application for **[@isradari](https://isradari.t.me)** that monitors top Azerbaijani job portals (`linkedin`, `jobsearch.az`, `hellojob.az`, `ishelanlari.az`, `banker.az`, `boss.az`), uses **Google Gemini AI** for structured vacancy extraction, filters out duplicates using a **7-day historical lookback** SQLite database, and publishes a balanced, date-ordered daily batch of **15 fresh vacancies** in **1 single clean message**.
+An intelligent, automated Telegram bot application for **[@karyerahub](https://t.me/karyerahub)** that monitors top Azerbaijani job portals (`linkedin`, `jobsearch.az`, `hellojob.az`, `ishelanlari.az`, `banker.az`, `boss.az`), uses **Google Gemini AI** for structured vacancy extraction, filters out duplicates using a **7-day historical lookback** SQLite database, and publishes a balanced, date-ordered daily batch of **15 fresh vacancies** in **1 single clean message**.
 
 ---
 
@@ -26,7 +26,7 @@ An intelligent, automated Telegram bot application for **[@isradari](https://isr
 ## 🏗️ Project Architecture
 
 ```
-isradaribot/
+karyerahub/
 ├── config/
 │   ├── __init__.py
 │   └── settings.py            # Pydantic environment configuration
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 Edit `.env` to configure your tokens:
 ```env
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-TELEGRAM_CHANNEL_ID=@isradari
+TELEGRAM_CHANNEL_ID=@karyerahub
 GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-3.1-flash-lite
 DAILY_MAX_JOBS=15

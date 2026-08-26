@@ -46,9 +46,9 @@ class TelegramJobFormatter:
         
         # Header
         if total_batches > 1:
-            header = f"🇦🇿 <b>İş Radarı | Yeni Vakansiyalar ({batch_index}/{total_batches})</b>\n📅 <i>{now_str}</i>\n"
+            header = f"🇦🇿 <b>Karyera Hub | Günün Yeni Vakansiyaları ({batch_index}/{total_batches})</b>\n📅 <i>{now_str}</i>\n"
         else:
-            header = f"🇦🇿 <b>İş Radarı | Günün Yeni Vakansiyaları</b>\n📅 <i>{now_str}</i>\n"
+            header = f"🇦🇿 <b>Karyera Hub | Günün Yeni Vakansiyaları</b>\n📅 <i>{now_str}</i>\n"
 
         lines = [header]
 
@@ -77,7 +77,7 @@ class TelegramJobFormatter:
             lines.append(job_block)
 
         lines.append("\n━━━━━━━━━━━━━━━━━━━━")
-        lines.append("🔔 <i>Gündəlik ən son elanlar üçün kanala abunə olun:</i> @isradari")
+        lines.append("🔔 <i>Gündəlik ən son elanlar üçün kanala abunə olun:</i> @karyerahub")
 
         return "\n".join(lines)
 

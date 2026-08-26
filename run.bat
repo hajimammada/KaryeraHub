@@ -1,7 +1,7 @@
 @echo off
-title isradaribot - Is Radari Telegram Bot
+title karyerahub - Karyera Hub Telegram Bot
 echo ==========================================
-echo  isradaribot - Is Radari Telegram Bot
+echo  karyerahub - Karyera Hub Telegram Bot
 echo ==========================================
 echo.
 echo Choose execution mode:

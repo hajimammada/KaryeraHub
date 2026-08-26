@@ -1,6 +1,6 @@
-# isradaribot - PowerShell Launcher
+# karyerahub - PowerShell Launcher
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "🇦🇿 isradaribot (Is Radari Telegram Bot)" -ForegroundColor Green
+Write-Host "🇦🇿 karyerahub (Karyera Hub Telegram Bot)" -ForegroundColor Green
 Write-Host "==========================================" -ForegroundColor Cyan
 
 $mode = Read-Host "Choose mode: 
