@@ -33,7 +33,7 @@ class JobDiscoveryPipeline:
             return []
 
         all_jobs: List[JobItem] = []
-        for item in raw_sources:
+        for idx, item in enumerate(raw_sources):
             portal = item["portal"]
             content = item["content"]
 
@@ -43,6 +43,11 @@ class JobDiscoveryPipeline:
                 base_url=portal.base_url
             )
             all_jobs.extend(extracted)
+
+            # Add polite pause between portals to keep token consumption smooth and low
+            if idx < len(raw_sources) - 1:
+                import time
+                time.sleep(6)
 
         # Basic within-cycle deduplication by link
         unique_jobs: List[JobItem] = []

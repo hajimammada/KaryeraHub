@@ -106,7 +106,7 @@ class GeminiExtractor:
 
         # Preprocess and clean HTML to avoid head/style noise
         clean_content = self._clean_html_content(raw_content)
-        snippet = clean_content[:65000]
+        snippet = clean_content[:30000]
 
         prompt = f"""You are a specialized vacancy extraction system for Azerbaijani job portals and LinkedIn jobs located in Azerbaijan.
 Extract all distinct job vacancies found in the provided HTML/text from {portal_name}.
